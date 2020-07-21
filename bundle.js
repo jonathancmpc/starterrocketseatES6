@@ -122,3 +122,47 @@ var teste = function teste() {
 };
 
 console.log(teste());
+/** 
+*   VALORES PADRÕES PARA FUNÇÃO
+*/
+// Retorna a soma de a + b e caso um ou todos os parâmetros não forem passados, a função assume os valores padrões 3 e 6.
+
+var soma = function soma() {
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  return a + b;
+};
+
+console.log(soma(1));
+/** 
+*   DESESTRUTURAÇÃO
+*/
+
+var usuario = {
+  nome: 'Jonathan',
+  idade: 29,
+  endereco: {
+    cidade: 'Gama',
+    estado: 'DF'
+  }
+};
+/* const nome = usuario.nome;
+const idade = usuario.idade;
+const cidade = usuario.endereco.cidade; */
+
+/* Podemos extrair as informações do objeto usuario utilizando a desestruturação, ao invés de passar variável por variável como foi feito acima */
+
+var nome = usuario.nome,
+    idade = usuario.idade,
+    cidade = usuario.endereco.cidade;
+console.log(nome);
+console.log(idade);
+console.log(cidade);
+/* Podemos utilizar a desestruturação tbm em uma função, neste caso passamos o usuario quando chamamos a função e a função desestrura trazendo somente o nome */
+
+var funcaoUsuario = function funcaoUsuario(_ref) {
+  var nome = _ref.nome;
+  return console.log(nome);
+};
+
+funcaoUsuario(usuario);
