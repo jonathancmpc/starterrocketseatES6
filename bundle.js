@@ -71,7 +71,9 @@ document.getElementById('novotodo').onclick = function () {
   MinhaLista.add('Novo todo');
   console.log(MinhaLista.usuario);
 };
-/* Operações com Array */
+/**
+ *  OPERAÇÕES COM ARRAY
+ * */
 
 
 var arr = [1, 3, 4, 5, 8, 10];
@@ -99,3 +101,24 @@ var find = arr.find(function (item) {
   return item === 10;
 });
 console.log(find);
+/** 
+*   ARROW FUNCTION
+*/
+
+/* Podemos ver que substituimo a palavra function pela setinha e quando temos apenas uma variável, no caso o item, podemos retirar o parêntese */
+
+/* Também quando retornarmos apenas uma linha de código podemos retornar diretamente depois da flecha nossa operação */
+
+var newArray = arr.map(function (item) {
+  return item * 2;
+});
+console.log(newArray);
+/* Podemos também passar uma variável como função da seguinte maneira */
+
+var teste = function teste() {
+  return {
+    nome: 'Diego'
+  };
+};
+
+console.log(teste());
