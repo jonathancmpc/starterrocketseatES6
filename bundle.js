@@ -1,5 +1,15 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -166,3 +176,54 @@ var funcaoUsuario = function funcaoUsuario(_ref) {
 };
 
 funcaoUsuario(usuario);
+/** 
+*   REST E SPREAD
+*/
+//REST
+
+/* O rest é usado para pegar o resto dos parâmetros */
+
+var usuario2 = {
+  nome2: 'Jonathan',
+  idade: 29,
+  empresa: 'DevLove'
+};
+
+var nome2 = usuario2.nome2,
+    resto = _objectWithoutProperties(usuario2, ["nome2"]);
+
+console.log(nome2);
+console.log(resto);
+/* Pode ser utilizado tbm em uma função */
+
+function soma2() {
+  for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
+    params[_key] = arguments[_key];
+  }
+
+  return params.reduce(function (total, next) {
+    return total + next;
+  });
+}
+
+console.log(soma2(1, 3, 4, 10, 20, 50)); // SPREAD
+
+var array01 = [1, 2, 3, 4];
+var array02 = [5, 6, 7, 8];
+/* O Spread traz tudo que tem dentro do array, neste caso juntamos os arrays */
+
+var array03 = [].concat(array01, array02);
+console.log(array03);
+/* Pode ser utilizado também para substituir um item especídifico de um objeto, neste caso apenas trocamos o nome */
+
+var usuario01 = {
+  nome: 'Diego',
+  idade: 29,
+  empresa: 'Rocketseat'
+};
+
+var usuario02 = _objectSpread(_objectSpread({}, usuario01), {}, {
+  nome: 'Jonathan'
+});
+
+console.log(usuario02);

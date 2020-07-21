@@ -105,3 +105,46 @@ console.log(cidade);
 /* Podemos utilizar a desestruturação tbm em uma função, neste caso passamos o usuario quando chamamos a função e a função desestrura trazendo somente o nome */
 const funcaoUsuario = ({nome}) => (console.log(nome));
 funcaoUsuario(usuario);
+
+
+/** 
+*   REST E SPREAD
+*/
+
+//REST
+/* O rest é usado para pegar o resto dos parâmetros */
+const usuario2 = {
+    nome2: 'Jonathan',
+    idade: 29,
+    empresa: 'DevLove'
+};
+
+const { nome2, ...resto } = usuario2;
+console.log(nome2);
+console.log(resto);
+
+/* Pode ser utilizado tbm em uma função */
+function soma2(...params) {
+    return params.reduce((total, next) => total + next);
+}
+console.log(soma2(1,3,4,10,20,50))
+
+
+// SPREAD
+
+const array01 = [1,2,3,4];
+const array02 = [5,6,7,8];
+
+/* O Spread traz tudo que tem dentro do array, neste caso juntamos os arrays */
+const array03 = [...array01, ...array02];
+console.log(array03);
+
+/* Pode ser utilizado também para substituir um item especídifico de um objeto, neste caso apenas trocamos o nome */
+const usuario01 = {
+    nome: 'Diego',
+    idade: 29,
+    empresa: 'Rocketseat',
+};
+
+const usuario02 = {...usuario01, nome: 'Jonathan'}
+console.log(usuario02);
