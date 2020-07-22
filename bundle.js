@@ -227,3 +227,15 @@ var usuario02 = _objectSpread(_objectSpread({}, usuario01), {}, {
 });
 
 console.log(usuario02);
+/** 
+*   TEMPLATE LITERALS
+*/
+
+var name = 'Jonathan';
+var year = 29;
+/* Como fazer sem o template Literals */
+
+console.log('My name is ' + name + " and I'm " + year + ' years old');
+/* Com Template Literals */
+
+console.log("Meu nome \xE9 ".concat(name, " e tenho ").concat(year, " anos"));

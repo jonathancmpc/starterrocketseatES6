@@ -148,3 +148,16 @@ const usuario01 = {
 
 const usuario02 = {...usuario01, nome: 'Jonathan'}
 console.log(usuario02);
+
+/** 
+*   TEMPLATE LITERALS
+*/
+
+const name = 'Jonathan'
+const year = 29;
+
+/* Como fazer sem o template Literals */
+console.log('My name is ' + name + " and I'm " + year + ' years old');
+
+/* Com Template Literals */
+console.log(`Meu nome é ${name} e tenho ${year} anos`);
