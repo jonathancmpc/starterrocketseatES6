@@ -239,3 +239,24 @@ console.log('My name is ' + name + " and I'm " + year + ' years old');
 /* Com Template Literals */
 
 console.log("Meu nome \xE9 ".concat(name, " e tenho ").concat(year, " anos"));
+/** 
+*   Object Short Syntax (Sintaxe curta de objeto)
+*/
+
+var name_user = 'Jonathan';
+var year_user = 29;
+/* Sem uso do Short Syntax, repare que o nome do item do objeto é o mesmo da variável */
+
+var user01 = {
+  name_user: name_user,
+  year_user: year_user,
+  Company: 'RocketSeat'
+};
+/* Usando o Short Syntax, quando o nome da variável é o mesmo do item podemos passar somente a variável */
+
+var user02 = {
+  name_user: name_user,
+  year_user: year_user,
+  Company: 'RocketSeat'
+};
+console.log(user02);
